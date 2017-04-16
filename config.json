@@ -1,0 +1,12 @@
+/**
+ * AUTH: yjsgoon
+ * DATE: 2017. 4. 16
+ * DESC: Server Configuration Values
+ */
+
+{
+  "projectName" : "Beering",
+  "db" : {
+    "mysql" : "localhost"
+  }
+}
