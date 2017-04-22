@@ -22,11 +22,11 @@ fs.createReadStream('./resource/db/mclang_brewery_brewery.csv')
             data.id, data.engname, data.korname, data.est, data.location, data.location_detail,
             data.phone, data.homepage, data.description, data.logo_image, data.brand_image);
 
-        db.query("INSERT INTO data_store(?, ?, ?, ?, ?, ?, ?, ?, ?) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?);",
+        db.query("INSERT INTO data_store(?, ?, ?, ?, ?, ?, ?, ?, ?) VALUES(?, ?, ?, ?, ?, ?, ?, now(), now());",
             ['brewery_engname', 'brewery_korname', 'brewery_location', 'brewery_location_detail', 'brewery_tel',
                 'brewery_history', 'brewery_url', 'ipt_date', 'upt_date',
                 data.engname, data.korname, data.location, data.location_detail,
-                data.phone, data.description, data.homepage, now(), now()])
+                data.phone, data.description, data.homepage])
             .then(function () {
                 console.log('script success');
             })
