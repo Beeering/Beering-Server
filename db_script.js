@@ -14,9 +14,6 @@ var db = require('./db');
 //                     data.IBU, data.ABV, data.about, data.is_beer, data.is_brewery_detail, data.brewery_id);
 //     });
 
-// id,beer_image,engname,korname,feature,style,released date,IBU,ABV,about,is_beer,is_brewery_detail,brewery_id
-
-/*
 fs.createReadStream('./resource/db/mclang_brewery_brewery.csv')
     .pipe(csv())
     .on('data', function (data) {
@@ -37,4 +34,3 @@ fs.createReadStream('./resource/db/mclang_brewery_brewery.csv')
                 console.log('script fail: ' + err);
             });
     });
-*/
