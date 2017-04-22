@@ -5,8 +5,9 @@
  */
 
 {
-  "projectName" : "Beering",
-  "db" : {
-    "mysql" : "localhost"
-  }
+  "projectName" : "Beering"
+//  "projectName" : "Beering",
+//  "db" : {
+//    "mysql" : "localhost"
+//  }
 }
