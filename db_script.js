@@ -17,12 +17,12 @@ var db = require('./db');
 fs.createReadStream('./resource/db/mclang_brewery_brewery.csv')
     .pipe(csv())
     .on('data', function (data) {
-        console.log('id: %s engname: %s korname: %s est: %s location: %s location_detail: %s phone: %s homepage: %s ' +
-            'description: %s logo_image: %s brand_image: %s',
-            data.id, data.engname, data.korname, data.est, data.location, data.location_detail,
-            data.phone, data.homepage, data.description, data.logo_image, data.brand_image);
+        // console.log('id: %s engname: %s korname: %s est: %s location: %s location_detail: %s phone: %s homepage: %s ' +
+        //     'description: %s logo_image: %s brand_image: %s',
+        //     data.id, data.engname, data.korname, data.est, data.location, data.location_detail,
+        //     data.phone, data.homepage, data.description, data.logo_image, data.brand_image);
 
-        db.query("INSERT INTO data_store(?, ?, ?, ?, ?, ?, ?, ?, ?) VALUES(?, ?, ?, ?, ?, ?, ?, now(), now());",
+        db.query("INSERT INTO brewery(?, ?, ?, ?, ?, ?, ?, ?, ?) VALUES(?, ?, ?, ?, ?, ?, ?, now(), now());",
             ['brewery_engname', 'brewery_korname', 'brewery_location', 'brewery_location_detail', 'brewery_tel',
                 'brewery_history', 'brewery_url', 'ipt_date', 'upt_date',
                 data.engname, data.korname, data.location, data.location_detail,
