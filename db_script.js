@@ -14,18 +14,37 @@ var db = require('./db');
 //                     data.IBU, data.ABV, data.about, data.is_beer, data.is_brewery_detail, data.brewery_id);
 //     });
 
+
+/**
+ *  AUTH: yjsgoon
+ *  DESC: brewery
+ *  DATE: 2017. 5. 1.
+ */
 fs.createReadStream('./resource/db/mclang_brewery_brewery.csv')
     .pipe(csv())
     .on('data', function (data) {
-        // console.log('id: %s engname: %s korname: %s est: %s location: %s location_detail: %s phone: %s homepage: %s ' +
-        //     'description: %s logo_image: %s brand_image: %s',
-        //     data.id, data.engname, data.korname, data.est, data.location, data.location_detail,
-        //     data.phone, data.homepage, data.description, data.logo_image, data.brand_image);
-
         db.query("INSERT INTO brewery(brewery_engname, brewery_korname, brewery_location, brewery_location_detail, " +
             "brewery_tel, brewery_history, brewery_url, ipt_date, upt_date) VALUES(?, ?, ?, ?, ?, ?, ?, now(), now());",
             [data.engname, data.korname, data.location, data.location_detail,
                 data.phone, data.description, data.homepage])
+            .then(function () {
+                console.log('script success');
+            })
+            .catch(function (err) {
+                console.log('script fail: ' + err);
+            });
+    });
+
+/**
+ *  AUTH: yjsgoon
+ *  DESC: pub
+ *  DATE: 2017. 5. 3.
+ */
+fs.createReadStream('./resource/db/mclang_brewery_pub.csv')
+    .pipe(csv())
+    .on('data', function (data) {
+        db.query("INSERT INTO pub(pub_engname, pub_korname, pub_location, pub_brewery_id, ipt_date, upt_date) VALUES(?, ?, ?, ?, now(), now());",
+            [data.engname, data.korname, data.location, data.brewery_id])
             .then(function () {
                 console.log('script success');
             })
