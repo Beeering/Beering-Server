@@ -19,7 +19,7 @@ fs.createReadStream('./resource/db/mclang_brewery_beer.csv')
         //             data.IBU, data.ABV, data.about, data.is_beer, data.is_brewery_detail, data.brewery_id);
         db.query("INSERT INTO beer(field_id, beer_engname, beer_korname, beer_image, nation_id, style_id, " +
                  "beer_abv, beer_ibu, beer_feature, brewery_id, history, description, ipt_date, upt_date) " +
-                 "VALUES(2, ?, ?, ?, 1, 1, ?, ?, ?, ?, ?, 'need kcal' now(), now());",
+                 "VALUES(2, ?, ?, ?, 1, 1, ?, ?, ?, ?, ?, 'need kcal', now(), now());",
             [data.engname, data.korname, data.beer_image, data.ABV, data.IBU, data.feature, data.brewery_id, data.about])
             .then(function () {
                 console.log('script success');
