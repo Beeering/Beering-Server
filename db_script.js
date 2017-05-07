@@ -4,6 +4,7 @@
 var csv = require('csv-parser');
 var fs = require('fs');
 var db = require('./db');
+var _ = require('underscore');
 
 /**
  *  AUTH: yjsgoon
@@ -17,10 +18,15 @@ fs.createReadStream('./resource/db/mclang_brewery_beer.csv')
         //             'IBU: %s ABV: %s about: %s is_beer: %s is_brewery_detail: %s brewery_id: %s',
         //             data.id, data.beer_image, data.engname, data.korname, data.feature, data.style, data.released_date,
         //             data.IBU, data.ABV, data.about, data.is_beer, data.is_brewery_detail, data.brewery_id);
+        var ibu = data.IBU;
+
+        if (!_.isNumber(data.IBU))
+            ibu = -1;
+
         db.query("INSERT INTO beer(field_id, beer_engname, beer_korname, beer_image, nation_id, style_id, " +
                  "beer_abv, beer_ibu, beer_feature, brewery_id, history, description, ipt_date, upt_date) " +
                  "VALUES(2, ?, ?, ?, 1, 1, ?, ?, ?, ?, ?, 'need kcal', now(), now());",
-            [data.engname, data.korname, data.beer_image, data.ABV, data.IBU, data.feature, data.brewery_id, data.about])
+            [data.engname, data.korname, data.beer_image, data.ABV, ibu, data.feature, data.brewery_id, data.about])
             .then(function () {
                 console.log('script success');
             })
