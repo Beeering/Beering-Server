@@ -1,7 +1,7 @@
 beer_korname,beer_engname,beer_abv,beer_ibu,beer_srm,beer_kcal,nation_id,style_id,brewery_id,description,ounces
 코젤 프리미엄,Kozel Premium,4.8,-1,-1,54,2,Czech Lager,73,,
 버드와이저,Budweiser,5,-1,-1,40,3,American Adjunct Lager,74,,
-버드와이저 셀렉트,Budweiser Select,4.3,-1,-1,28,3,Light Lager?,74,,
+버드와이저 셀렉트,Budweiser Select,4.3,-1,-1,28,3,Light Lager,74,,
 몰슨 캐네디언,Molson Canadian,5,-1,-1,144,4,American Adjunct Lager,72,,
 코로나 엑스트라,Corona Extra,4.6,-1,-1,148,5,American Adjunct Lager,70,,
 포스터스 라거,Foster's Lager,5,-1,-1,145,6,American Adjunct Lager,63,,
