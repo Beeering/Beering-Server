@@ -7,7 +7,7 @@ var db = require('../db');
 
 /* GET beer detail. */
 router.get('/get', function(req, res, next) {
-    db.query("SELECT * FROM beer WHERE beer_id = ?;", [req.body.beer_id])
+    db.query("SELECT * FROM beer WHERE beer_id = ?;", [req.query.beer_id])
         .then(function (data) {
             res.json({
                 resultCode: 0,
@@ -40,7 +40,7 @@ router.get('/list', function(req, res, next) {
 });
 
 /* SET beer. */
-router.get('/put', function(req, res, next) {
+router.post('/put', function(req, res, next) {
     res.json({
         resultCode: -1,
         msg: 'Don\'t implement'
@@ -49,7 +49,7 @@ router.get('/put', function(req, res, next) {
 
 /* DELETE beer. */
 router.get('/delete', function(req, res, next) {
-    db.query("DELETE FROM beer WHERE beer_id = ?;", [req.body.beer_id])
+    db.query("DELETE FROM beer WHERE beer_id = ?;", [req.query.beer_id])
         .then(function () {
             res.json({
                 resultCode: 0
