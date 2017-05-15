@@ -13,6 +13,7 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var beer = require('./routes/beer');
 var brewery = require('./routes/brewery');
+var pub = require('./routes/pub');
 
 var app = express();
 
@@ -32,6 +33,7 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/beer', beer);
 app.use('/brewery', brewery);
+app.use('/pub', pub);
 app.use(nodeadmin(app));
 
 
