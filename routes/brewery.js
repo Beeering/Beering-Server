@@ -6,8 +6,8 @@ var router = express.Router();
 var db = require('../db');
 
 /* GET brewery detail. */
-router.post('/get', function(req, res, next) {
-    db.query("SELECT * FROM brewery WHERE brewery_id = ?;", [req.body.brewery_id])
+router.get('/get', function(req, res, next) {
+    db.query("SELECT * FROM brewery WHERE brewery_id = ?;", [req.query.brewery_id])
         .then(function (data) {
             res.json({
                 resultCode: 0,
@@ -48,8 +48,8 @@ router.post('/put', function(req, res, next) {
 });
 
 /* DELETE brewery. */
-router.post('/delete', function(req, res, next) {
-    db.query("DELETE FROM brewery WHERE brewery_id = ?;", [req.body.brewery_id])
+router.get('/delete', function(req, res, next) {
+    db.query("DELETE FROM brewery WHERE brewery_id = ?;", [req.query.brewery_id])
         .then(function () {
             res.json({
                 resultCode: 0

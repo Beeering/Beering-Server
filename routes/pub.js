@@ -7,8 +7,8 @@ var router = express.Router();
 var db = require('../db');
 
 /* GET pub detail. */
-router.post('/get', function(req, res, next) {
-    db.query("SELECT * FROM pub WHERE pub_id = ?;", [req.body.pub_id])
+router.get('/get', function(req, res, next) {
+    db.query("SELECT * FROM pub WHERE pub_id = ?;", [req.query.pub_id])
         .then(function (data) {
             res.json({
                 resultCode: 0,
@@ -49,8 +49,8 @@ router.post('/put', function(req, res, next) {
 });
 
 /* DELETE pub. */
-router.post('/delete', function(req, res, next) {
-    db.query("DELETE FROM pub WHERE pub_id = ?;", [req.body.pub_id])
+router.get('/delete', function(req, res, next) {
+    db.query("DELETE FROM pub WHERE pub_id = ?;", [req.query.pub_id])
         .then(function () {
             res.json({
                 resultCode: 0
