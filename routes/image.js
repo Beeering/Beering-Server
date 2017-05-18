@@ -19,12 +19,12 @@ router.get('/get', function (req, res) {
     }
     else {
         fs.readFile(base_url + req.query.filename, function (err, data) {
-            if (err) {
-                res.json({
-                    resultCode: -1,
-                    msg: '존재하지 않는 파일입니다.'
-                });
-            }
+            // if (err) {
+            //     res.json({
+            //         resultCode: -1,
+            //         msg: '존재하지 않는 파일입니다.'
+            //     });
+            // }
 
             res.sendFile(path.join(__dirname, base_url, req.query.filename));
         });
