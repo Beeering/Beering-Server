@@ -3,8 +3,20 @@ var router = express.Router();
 var db = require('../db');
 
 /* GET users */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+router.get('/get', function(req, res, next) {
+    db.query("SELECT * FROM users WHERE user_id = ? ", [req.body.user_id])
+        .then(function (data) {
+            res.json({
+                resultCode: 0,
+                info: data
+            });
+        })
+        .catch(function (err) {
+            res.json({
+                resultCode: -1,
+                msg: 'Not Exists!!'
+            });
+        });
 });
 
 /* SET users. */
