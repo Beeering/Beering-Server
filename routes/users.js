@@ -4,7 +4,7 @@ var db = require('../db');
 
 /* GET users */
 router.get('/get', function(req, res, next) {
-    db.query("SELECT * FROM users WHERE user_id = ? ", [req.body.user_id])
+    db.query("SELECT * FROM user WHERE user_id = ? ", [req.query.user_id])
         .then(function (data) {
             res.json({
                 resultCode: 0,
