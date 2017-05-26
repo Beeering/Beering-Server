@@ -14,7 +14,7 @@ router.get('/get', function(req, res, next) {
         .catch(function (err) {
             res.json({
                 resultCode: -1,
-                msg: 'Not Exists!!'
+                msg: 'SQL Query Fail!!'
             });
         });
 });
