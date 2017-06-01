@@ -17,7 +17,7 @@ fs.createReadStream('../mclang_brewery_beer.csv')
     .on('data', function (data) {
 
         db.query("INSERT INTO beer(field_id, beer_engname, beer_korname, beer_image, nation_id, style_id, " +
-            "beer_abv, beer_ibu, beer_srm, beer_kcal beer_feature, brewery_id, history, ipt_date, upt_date) " +
+            "beer_abv, beer_ibu, beer_srm, beer_kcal, beer_feature, brewery_id, history, ipt_date, upt_date) " +
             "VALUES(2, ?, ?, ?, 1, 1, ?, ?, ?, ?, ?, ?, ?, now(), now());",
             [data.engname, data.korname, data.beer_image, data.ABV, Math.floor((Math.random() * 80) + 1),
                 Math.floor((Math.random() * 90) + 10), Math.floor((Math.random() * 55) + 20), data.feature, data.brewery_id, data.about])
