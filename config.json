@@ -5,8 +5,11 @@
  */
 
 {
-  "projectName" : "Beering"
-//  "projectName" : "Beering",
+  "projectName" : "Beering",
+  "server" : {
+    "event" : "http://175.210.58.4:7070/events.json?accesskey=XkCUCNUV_4cxMx-Am-WRpzh5-7wx0dNW4Zau32KXyBMxOKvEch6pJTsinVsjSwt-",
+    "recommend" : "http://175.210.58.4:8000/queries.json"
+  }
 //  "db" : {
 //    "mysql" : "localhost"
 //  }

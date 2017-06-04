@@ -15,6 +15,9 @@ var beer = require('./routes/beer');
 var brewery = require('./routes/brewery');
 var pub = require('./routes/pub');
 var image = require('./routes/image');
+var book = require('./routes/book');
+var evaluation = require('./routes/evaluation');
+var recommendation = require('./routes/recommendation');
 
 var app = express();
 
@@ -36,6 +39,9 @@ app.use('/beer', beer);
 app.use('/brewery', brewery);
 app.use('/pub', pub);
 app.use('/image', image);
+app.use('/book', book);
+app.use('/evaluation', evaluation);
+app.use('/recommendation', recommendation);
 app.use(nodeadmin(app));
 
 
