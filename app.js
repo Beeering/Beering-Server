@@ -18,6 +18,10 @@ var image = require('./routes/image');
 var book = require('./routes/book');
 var evaluation = require('./routes/evaluation');
 var recommendation = require('./routes/recommendation');
+var field = require('./routes/field');
+var nation = require('./routes/nation');
+var style = require('./routes/style');
+var version = require('./routes/version');
 
 var app = express();
 
@@ -42,6 +46,10 @@ app.use('/image', image);
 app.use('/book', book);
 app.use('/evaluation', evaluation);
 app.use('/recommendation', recommendation);
+app.use('/field', field);
+app.use('/nation', nation);
+app.use('/style', style);
+app.use('/version', version);
 app.use(nodeadmin(app));
 
 
