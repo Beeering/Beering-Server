@@ -10,16 +10,16 @@ module.exports.trainData = function (mod, user_id, beer_id) {
         {"event": mod, "entityType": "user", "entityId": user_id, "targetEntityType": "item", "targetEntityId": beer_id}
         , undefined, function(err, response, data){
             if (!err && response.statusCode == 200) {
-                res.json({
+                return {
                     resultCode: 0,
                     info: data
-                });
+                };
             }
             else {
-                res.json({
+                return {
                     resultCode: -1,
                     msg: 'Recommendation event server transfer fail!!'
-                })
+                };
             }
         });
 };
@@ -27,16 +27,16 @@ module.exports.trainData = function (mod, user_id, beer_id) {
 module.exports.recommendation = function (user_id, num) {
     curl.postJSON(config.server.recommend, { "user": user_id, "num": num }, undefined, function(err, response, data){
         if (!err && response.statusCode == 200) {
-            res.json({
+            return {
                 resultCode: 0,
                 info: data.replace(/\\/g, '')
-            });
+            };
         }
         else {
-            res.json({
+            return {
                 resultCode: -1,
                 msg: 'Recommendation fail'
-            })
+            };
         }
     });
 };

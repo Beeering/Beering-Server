@@ -9,13 +9,13 @@ var config = require('../config');
 
 /* TEST recommendation. */
 router.get('/test', function(req, res, next) {
-    proxy.recommendation("u1", 4);
+    res.json(proxy.recommendation("u1", 4));
 });
 
 
 /* GET recommendation. */
 router.get('/get', function(req, res, next) {
-    proxy.recommendation(req.query.user_id, req.query.num);
+    res.json(proxy.recommendation(req.query.user_id, req.query.num));
 });
 
 module.exports = router;
