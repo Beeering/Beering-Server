@@ -1,0 +1,42 @@
+/**
+ * Created by jisooyoon on 2017. 6. 14..
+ */
+
+var config = require('../config');
+var curl = require('curl');
+
+module.exports.trainData = function (mod, user_id, beer_id) {
+    curl.postJSON(config.server.event,
+        {"event": mod, "entityType": "user", "entityId": user_id, "targetEntityType": "item", "targetEntityId": beer_id}
+        , undefined, function(err, response, data){
+            if (!err && response.statusCode == 200) {
+                res.json({
+                    resultCode: 0,
+                    info: data
+                });
+            }
+            else {
+                res.json({
+                    resultCode: -1,
+                    msg: 'Recommendation event server transfer fail!!'
+                })
+            }
+        });
+};
+
+module.exports.recommendation = function (user_id, num) {
+    curl.postJSON(config.server.recommend, { "user": user_id, "num": num }, undefined, function(err, response, data){
+        if (!err && response.statusCode == 200) {
+            res.json({
+                resultCode: 0,
+                info: data.replace(/\\/g, '')
+            });
+        }
+        else {
+            res.json({
+                resultCode: -1,
+                msg: 'Recommendation fail'
+            })
+        }
+    });
+};

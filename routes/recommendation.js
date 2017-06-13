@@ -4,58 +4,18 @@
 
 var express = require('express');
 var router = express.Router();
-var request = require('request');
-var curl = require('curl');
+var proxy = require('./proxy');
 var config = require('../config');
+
+/* TEST recommendation. */
+router.get('/test', function(req, res, next) {
+    proxy.recommendation("u1", 4);
+});
+
 
 /* GET recommendation. */
 router.get('/get', function(req, res, next) {
-    /*request({
-        method: 'POST',
-        preambleCRLF: true,
-        postambleCRLF: true,
-        url: config.server.recommend,
-        multipart: [
-            {
-                'Content-Type': 'application/json',
-                // body: '{ "user": "u1", "num": 4 }'
-            },
-            JSON.stringify({
-                "user": "u1",
-                "num": 4
-            })
-        ]
-    },
-    function (error, response, body) {
-        if (!error && response.statusCode == 200) {
-            res.json({
-                resultCode: 0,
-                info: response
-            });
-        }
-        else {
-            res.json({
-                resultCode: -1,
-                msg: 'Recommendation fail'
-            })
-        }
-    });*/
-
-    curl.postJSON(config.server.recommend, { "user": "u1", "num": 4 }, undefined, function(err, response, data){
-        if (!err && response.statusCode == 200) {
-            res.json({
-                resultCode: 0,
-                info: data.replace(/\\/g, '')
-            });
-        }
-        else {
-            res.json({
-                resultCode: -1,
-                msg: 'Recommendation fail'
-            })
-        }
-    });
-
+    proxy.recommendation(req.query.user_id, req.query.num);
 });
 
 module.exports = router;

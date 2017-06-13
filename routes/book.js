@@ -5,8 +5,7 @@
 var express = require('express');
 var router = express.Router();
 var db = require('../db');
-var request = require('request');
-var config = require('../config');
+var proxy = require('./proxy');
 
 /* SET book. */
 router.post('/put', function(req, res, next) {
@@ -28,7 +27,7 @@ router.post('/put', function(req, res, next) {
             });
         });
 
-    // 추천 서버로 데이터 전송하기
+    proxy.trainData("view", req.query.user_id, req.query.beer_id);
 });
 
 /* GET book detail. */
