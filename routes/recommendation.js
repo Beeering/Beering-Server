@@ -16,7 +16,7 @@ router.get('/get', function(req, res, next) {
         url: config.server.recommend,
         multipart: [
             {
-                'content-type': 'application/json',
+                'Content-Type': 'application/json',
                 body: JSON.stringify({
                     "user": "u1",
                     "num": 4
