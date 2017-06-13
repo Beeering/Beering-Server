@@ -6,7 +6,7 @@ var express = require('express');
 var router = express.Router();
 var db = require('../db');
 var request = require('request');
-var config = require('../config.json');
+// var config = require('../config.json');
 
 /* SET book. */
 router.post('/put', function(req, res, next) {
