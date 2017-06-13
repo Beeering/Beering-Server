@@ -45,7 +45,7 @@ router.get('/get', function(req, res, next) {
         if (!err && response.statusCode == 200) {
             res.json({
                 resultCode: 0,
-                info: data.replace(/\\/g, '');
+                info: data.replace(/\\/g, '')
             });
         }
         else {
