@@ -17,13 +17,12 @@ router.get('/get', function(req, res, next) {
         multipart: [
             {
                 'Content-Type': 'application/json',
-                body: '{ "user": "u1", "num": 4 }'
-
-                // body: JSON.stringify({
-                //     "user": "u1",
-                //     "num": 4
-                // })
-            }
+                // body: '{ "user": "u1", "num": 4 }'
+            },
+            JSON.stringify({
+                "user": "u1",
+                "num": 4
+            })
         ]
     },
     function (error, response, body) {
