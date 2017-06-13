@@ -5,11 +5,12 @@
 var express = require('express');
 var router = express.Router();
 var request = require('request');
+var curl = require('curl');
 var config = require('../config');
 
 /* GET recommendation. */
 router.get('/get', function(req, res, next) {
-    request({
+    /*request({
         method: 'POST',
         preambleCRLF: true,
         postambleCRLF: true,
@@ -38,7 +39,23 @@ router.get('/get', function(req, res, next) {
                 msg: 'Recommendation fail'
             })
         }
+    });*/
+
+    curl.postJSON(config.server.recommend, { "user": "u1", "num": 4 }, undefined, function(err, response, data){
+        if (!err && response.statusCode == 200) {
+            res.json({
+                resultCode: 0,
+                info: data
+            });
+        }
+        else {
+            res.json({
+                resultCode: -1,
+                msg: 'Recommendation fail'
+            })
+        }
     });
+
 });
 
 module.exports = router;
