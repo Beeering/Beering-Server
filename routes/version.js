@@ -4,7 +4,7 @@
 
 var express = require('express');
 var router = express.Router();
-var config = require('../config.json');
+var config = require('../config');
 
 /* GET version list. */
 router.get('/list', function(req, res, next) {
