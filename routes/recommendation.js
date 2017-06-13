@@ -18,9 +18,8 @@ router.get('/get', function(req, res, next) {
             {
                 'content-type': 'application/json',
                 body: JSON.stringify({
-                    "event": "$set",
-                    "entityType": "user",
-                    "entityId": "u0"
+                    "user": "u1",
+                    "num": 4
                 })
             }
         ]
