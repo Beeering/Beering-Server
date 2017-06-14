@@ -9,16 +9,12 @@ var Promise = require('promise');
 
 /* TEST recommendation. */
 router.get('/test', function(req, res, next) {
-    //Promiseres.json(proxy.recommendation("u1", 4));
-    new Promise(proxy.recommendation("u1", 4), function(err, ret) {
-        res.json(ret);
-    });
+    res.json(proxy.recommendation(res, "u1", 4));
 });
-
 
 /* GET recommendation. */
 router.get('/get', function(req, res, next) {
-    res.json(proxy.recommendation(req.query.user_id, req.query.num));
+    res.json(proxy.recommendation(res, req.query.user_id, req.query.num));
 });
 
 module.exports = router;

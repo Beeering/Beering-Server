@@ -24,19 +24,19 @@ module.exports.trainData = function (mod, user_id, beer_id) {
         });
 };
 
-module.exports.recommendation = function (user_id, num) {
+module.exports.recommendation = function (ret, user_id, num) {
     curl.postJSON(config.server.recommend, { "user": user_id, "num": num }, undefined, function(err, response, data){
         if (!err && response.statusCode == 200) {
-            return {
+            ret.json({
                 resultCode: 0,
-                info: data.replace(/\\/g, '')
-            };
+                info: data
+            });
         }
         else {
-            return {
+            ret.json({
                 resultCode: -1,
                 msg: 'Recommendation fail'
-            };
+            });
         }
     });
 };

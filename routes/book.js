@@ -27,7 +27,7 @@ router.post('/put', function(req, res, next) {
             });
         });
 
-    proxy.trainData("view", req.query.user_id, req.query.beer_id);
+    proxy.trainData(ret, "view", req.query.user_id, req.query.beer_id);
 });
 
 /* GET book detail. */
