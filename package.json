@@ -17,6 +17,7 @@
     "morgan": "~1.7.0",
     "nodeadmin": "^0.1.2",
     "pm2": "^2.4.4",
+    "promise": "^7.1.1",
     "promise-mysql": "^3.0.1",
     "request": "^2.81.0",
     "serve-favicon": "~2.3.2",

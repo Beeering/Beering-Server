@@ -5,11 +5,14 @@
 var express = require('express');
 var router = express.Router();
 var proxy = require('./proxy');
-var config = require('../config');
+var Promise = require('promise');
 
 /* TEST recommendation. */
 router.get('/test', function(req, res, next) {
-    res.json(proxy.recommendation("u1", 4));
+    //Promiseres.json(proxy.recommendation("u1", 4));
+    new Promise(proxy.recommendation("u1", 4), function(err, ret) {
+        res.json(ret);
+    });
 });
 
 
