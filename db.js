@@ -9,7 +9,7 @@ var pool = mysql.createPool({
     user: 'beeringuser',
     password: 'beering',
     database: 'beering',
-    connectionLimit: 20
+    connectionLimit: 25
 });
 
 module.exports = pool;
